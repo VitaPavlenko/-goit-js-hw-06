@@ -15,17 +15,12 @@ const images = [
 
 const galleryEl = document.querySelector('.gallery');
 
-const liEl = document.createElement('li');
-
-const imagesEl = images.map(imag => imag.url);
-
-
-const markup = imagesEl.map(imag => `<li><img src=${imag} width="300" height="200"/></li>`).join(" ");
+const markup = images.map(imag => imag.url).map(imag => `<li><img src=${imag} width="300" height="200"/></li>`).join(" ");
 
 
 galleryEl.insertAdjacentHTML("beforeend", markup);
 
 galleryEl.style.display = "flex";
-galleryEl.style.justifyContent = "spacea-round";
+galleryEl.style.justifyContent = "space-around";
 
 console.log(galleryEl);

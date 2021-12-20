@@ -4,29 +4,32 @@ const inputEl = document.querySelector('#validation-input');
 inputEl.addEventListener('focus', onInputFocus);
 inputEl.addEventListener('blur', onInputBlur);
 
-
-
-console.log(inputEl);
-
-function onInputFocus() {
-  console.log(`focus`);   
+const borderEl = (element1, element2) =>{
+  inputEl.classList.remove(element1);
+  inputEl.classList.remove(element2);
 };
 
 
+function onInputFocus() {
+   
+};
+
 function onInputBlur(event) {
 
-    if(event.currentTarget.value.length === Number(inputEl.dataset.length))
+    if(inputEl.value.length === Number(inputEl.dataset.length))
     {
-       
+      borderEl('valid', 'invalid');
+      
       inputEl.classList.add('valid');
-      inputEl.classList.toggle('invalid')
+      
        
       return;
       
     };
 
+     borderEl('valid', 'invalid');
+  
     inputEl.classList.add('invalid');
-    inputEl.classList.toggle('valid')
+    
 }
 
-  console.log(inputEl); 
